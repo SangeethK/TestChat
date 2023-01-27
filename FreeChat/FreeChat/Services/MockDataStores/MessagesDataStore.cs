@@ -19,80 +19,13 @@ namespace FreeChat.Services.MockDataStores
             {
                 ConversationId = conversation.Id,
                 Id = Guid.NewGuid().ToString(),
-                Content = "I was at your office yesterday.",
+                Content = "Hi There.. I am Chat UI.",
                 CreationDate = DateTime.Now - TimeSpan.FromDays(1),
                 ISent = false,
                 SenderId = conversation.Peer.Id,
                 Sender = conversation.Peer
             });
-            _messages.Add(new Message
-            {
-                ConversationId = conversation.Id,
-                Id = Guid.NewGuid().ToString(),
-                Content = "Ooh really ?",
-                CreationDate = DateTime.Now - TimeSpan.FromDays(1),
-                ISent = true,
-                SenderId = conversation.UserIds[0],
-            });
-            _messages.Add(new Message
-            {
-                ConversationId = conversation.Id,
-                Id = Guid.NewGuid().ToString(),
-                ISentPreviousMessage = true,
-                Content = "Yeah. But you were not arround",
-                CreationDate = DateTime.Now - TimeSpan.FromMinutes(5),
-                ISent = false,
-                SenderId = conversation.Peer.Id,
-                Sender = conversation.Peer
-            });
-            _messages.Add(new Message
-            {
-                ConversationId = conversation.Id,
-                Id = Guid.NewGuid().ToString(),
-                ISentPreviousMessage = false,
-                Content = "Yeah I was not arround I left early yesterday",
-                CreationDate = DateTime.Now - TimeSpan.FromMinutes(2),
-                ISent = true,
-                SenderId = conversation.Peer.Id,
-                Sender = conversation.Peer,
-                ReplyTo = _messages[_messages.Count - 3]
-            });
-            _messages.Add(new Message
-            {
-                ConversationId = conversation.Id,
-                Id = Guid.NewGuid().ToString(),
-                ISentPreviousMessage = true,
-                Content = "I sent this message",
-                CreationDate = DateTime.Now - TimeSpan.FromMinutes(1),
-                ISent = true,
-                SenderId = conversation.Peer.Id,
-                Sender = conversation.Peer,
-                ReplyTo = _messages[_messages.Count - 2]
-            });
-            _messages.Add(new Message
-            {
-                ConversationId = conversation.Id,
-                Id = Guid.NewGuid().ToString(),
-                ISentPreviousMessage = true,
-                Content = "I called you, and I left you a message did you see it ?",
-                CreationDate = DateTime.Now - TimeSpan.FromMinutes(1),
-                ISent = false,
-                SenderId = conversation.Peer.Id,
-                Sender = conversation.Peer,
-                ReplyTo = _messages[_messages.Count - 2]
-            });
-            _messages.Add(new Message
-            {
-                ConversationId = conversation.Id,
-                Id = Guid.NewGuid().ToString(),
-                ISentPreviousMessage = false,
-                Content = "I called you, and I left you a message did you see it ?",
-                CreationDate = DateTime.Now ,
-                ISent = false,
-                SenderId = conversation.Peer.Id,
-                Sender = conversation.Peer,
-                ReplyTo = _messages[_messages.Count - 2]
-            });
+            
             conversation.LastMessage = _messages.Last();
         }
 

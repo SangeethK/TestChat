@@ -50,7 +50,7 @@
                     <Label Text="what !!"/>
                 </xe:BorderView>-->
 
-                <customControls:FloatingButton Margin="5,0,0,0"
+                <!--<customControls:FloatingButton Margin="5,0,0,0"
                                                HorizontalOptions="Start"
                                                VerticalOptions="Center" 
                                                CornerRadius="90"
@@ -67,7 +67,7 @@
                             <On Platform="Android" Value="5,0 ,0,0"/>
                         </OnPlatform>
                     </customControls:FloatingButton.Margin>
-                </customControls:FloatingButton>
+                </customControls:FloatingButton>-->
 
                 <dataTemplates:SimpleUserProfileTemplate BindingContext="{Binding CurrentConversation}"
                                                          Grid.Column="1" 
@@ -91,7 +91,7 @@
                         </OnPlatform>
                     </StackLayout.Margin>
 
-                    <customControls:FloatingButton Icon="{StaticResource FontAwesomePhone}"
+                    <!--<customControls:FloatingButton Icon="{StaticResource FontAwesomePhone}"
                                                    IconColor="{StaticResource AccentColor}"
                                                    HasShadow="False"
                                                    BackgroundColor="{StaticResource PrimaryColor}"
@@ -108,7 +108,7 @@
                                                    IconSize="25"
                                                    WidthRequest="40"
                                                    HeightRequest="40"
-                                                   Margin="0,0,10,0"/>
+                                                   Margin="0,0,10,0"/>-->
                 </StackLayout>
 
             </Grid>

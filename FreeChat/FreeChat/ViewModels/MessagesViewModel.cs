@@ -63,6 +63,7 @@ namespace FreeChat.ViewModels
         public MessagesViewModel(IDataStore<User> userDataStore, IConversationsDataStore convDataStore, 
             IMessageDataStore messageDataStore) : base(userDataStore, convDataStore, messageDataStore)
         {
+            ConversationId = "CHAT-BOT";
             ReplyMessageSelectedCommand = ReactiveCommand.Create<Message>(ReplyMessageSelected);
             MessageSwippedCommand = ReactiveCommand.Create<Message>(MessageSwiped);
             SendMessageCommand = ReactiveCommand.CreateFromTask(SendMeessage, this.WhenAnyValue(vm => vm.CurrentMessage, curm => !String.IsNullOrEmpty(curm)));
@@ -163,6 +164,10 @@ namespace FreeChat.ViewModels
 
         public async Task FakeMessaging()
         {
+
+            var openApiAuth = new OpenAI_API.APIAuthentication("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");
+            OpenAI_API.OpenAIAPI api = new OpenAI_API.OpenAIAPI(openApiAuth);
+            
             //var shouldReply = new Random().Next(0, 3) > 0 ? true : false;
             var shouldReply = true;
 

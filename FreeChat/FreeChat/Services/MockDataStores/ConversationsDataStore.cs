@@ -15,10 +15,6 @@ namespace FreeChat.Services.MockDataStores
         {
             var msgs = new string[]
             {
-                "Hi, am ok and you ?",
-                "Hi, what's up ?", 
-                "I was aware of that",
-                "Get up.",
                 "Hello how are you ?"
             };
 
@@ -29,7 +25,7 @@ namespace FreeChat.Services.MockDataStores
                 int randomHours = new Random().Next(0, 24);
                 _conversations.Add(new Conversation
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = "CHAT-BOT", //Guid.NewGuid().ToString(),
                     LastMessage = new Message
                     {
                         Content = msgs[new Random().Next(0, msgs.Length - 1)],
