@@ -97,12 +97,13 @@ namespace FreeChat.ViewModels
                     var dayDiff = DateTime.Now.Day - date.Day;
                     string groupHeader = string.Empty;
 
-                    if (dayDiff == 0)
-                        groupHeader = TextResources.Today;
-                    else if (dayDiff == 1)
-                        groupHeader = TextResources.Yesterday;
-                    else groupHeader = date.ToString("MM-dd-yyyy");
+                    //if (dayDiff == 0)
+                    //    groupHeader = TextResources.Today;
+                    //else if (dayDiff == 1)
+                    //    groupHeader = TextResources.Yesterday;
+                    //else groupHeader = date.ToString("MM-dd-yyyy");
 
+                    groupHeader = date.ToString("MM-dd-yyyy");
                     return new MessagesGroup
                     (
                         dateTime : date,
@@ -164,10 +165,11 @@ namespace FreeChat.ViewModels
 
         public async Task FakeMessaging()
         {
-
-            var openApiAuth = new OpenAI_API.APIAuthentication("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");
+            var openApiAuth = new OpenAI_API.APIAuthentication("");
             OpenAI_API.OpenAIAPI api = new OpenAI_API.OpenAIAPI(openApiAuth);
-            
+
+            var result = await api.Completions.CreateCompletionAsync("Give me few lines about interstellar", temperature: 0.1);
+
             //var shouldReply = new Random().Next(0, 3) > 0 ? true : false;
             var shouldReply = true;
 
@@ -178,7 +180,7 @@ namespace FreeChat.ViewModels
                 await Task.Delay(TimeSpan.FromSeconds(3));
                 var message = new Message
                 {
-                    Content = "Hey here is a simple reply.",
+                    Content = result.ToString(), //"Hey here is a simple reply.",
                     CreationDate = DateTime.Now,
                     Sender = CurrentConversation.Peer,
                     //ISentPreviousMessage = Messages.Last().Last().ISent,
